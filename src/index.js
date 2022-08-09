@@ -4,19 +4,30 @@ import './index.css';
 
 function Button(props) {
 
-  let [ normalState, setNormalState ] = React.useState(true);
+  let [normalState, setNormalState] = React.useState(true);
 
-  function toggleState() {
-    setNormalState( x => !x );
+  const counter = ()=>{
+      setNormalState (!normalState)
+
+      
+
   }
+
   
+
   return (
-    <button 
-      style={ { backgroundColor: ( normalState ? 'inherit' : 'red' ) } }
-      onClick={ toggleState }>
-      {props.emoji} {props.name} {props.emoji}
-    </button>
-    );
+    <>
+      <div>
+       {normalState ? "hello":"buy"}
+      </div>
+      <button
+        style={{ backgroundColor: (normalState ? 'inherit' : 'red'), color: (normalState ? 'black' : 'white'), }}
+        onClick={counter}>
+        {props.emoji} {props.name} {props.emoji}
+      </button>
+      
+    </>
+  );
 }
 
 
@@ -24,14 +35,14 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
 root.render(
-  <>
+  <div>
     <Button name="Lion" emoji="🦁" />
     <Button name="Tiger" emoji="🐯" />
     <Button name="Dog" emoji="🐩" />
     <Button name="Wolf" emoji="🐺" />
     <Button name="Fox" emoji="🦊" />
     <Button name="Raccoon" emoji="🦝" />
-  </>
+  </div>
 )
 
 

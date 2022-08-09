@@ -1,0 +1,11 @@
+
+const [intervalID, setintervalID] = useState(null);
+
+const Start= () => {
+if (intervalID) return;
+
+const timeID = setInterval(() => {
+setCounter((current) => current + 1);
+}, 100);
+
+setintervalID(timeID);
